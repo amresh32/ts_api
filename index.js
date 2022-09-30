@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+var express = require("express");
+var bodyparser = require("body-parser");
+var users_js_1 = require("./routes/users.js");
+var app = express();
+var PORT = 3000;
+app.use(bodyparser.json());
+app.use('/users', users_js_1["default"]);
+app.get('/', function (req, res) { return res.send('Hello from Homepage.'); });
+app.listen(PORT, function () { return console.log("server is Running on port: http://localhost: ".concat(PORT)); });
